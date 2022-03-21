@@ -5,9 +5,9 @@ import com.example.androidnewarchitecture.utils.AppConstants
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface TheMovieDbApiService {
+interface MovieDBApiService {
     @GET("discover/movie")
-    suspend fun loadPhotos(
+    suspend fun getMoviesList(
         @Query("api_key") apiKey: String = AppConstants.API_KEY,
         @Query("language") language: String = "en-Us",
         @Query("sort_by") sortBy: String = "popularity.desc",

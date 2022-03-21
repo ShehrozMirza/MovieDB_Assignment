@@ -1,10 +1,10 @@
 plugins {
-    id(AppPlugins.androidApplication)
-    id(AppPlugins.kotlinAndroid)
-    id(AppPlugins.kotlinKapt)
-    id(AppPlugins.androidHilt)
-    id(AppPlugins.parcelize)
-    id(AppPlugins.navigationSafeArg)
+    id(AppLevelPlugins.androidApplication)
+    id(AppLevelPlugins.kotlinAndroid)
+    id(AppLevelPlugins.kotlinKapt)
+    id(AppLevelPlugins.androidHilt)
+    id(AppLevelPlugins.parcelize)
+    id(AppLevelPlugins.navigationSafeArg)
 }
 
 android {
