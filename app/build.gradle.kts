@@ -9,7 +9,6 @@ plugins {
 
 android {
     compileSdk = AndroidConfig.DefaultConfig.compileSdkVersion
-
     defaultConfig {
         applicationId = AndroidConfig.DefaultConfig.applicationId
         minSdk = AndroidConfig.DefaultConfig.minSdkVersion

@@ -1,4 +1,3 @@
-
 package com.example.androidnewarchitecture.ui.trending
 
 sealed class TrendingMovieUiState

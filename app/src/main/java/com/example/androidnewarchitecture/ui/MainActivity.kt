@@ -18,7 +18,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         bi = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bi.root)
-
         setupViews()
     }
 
