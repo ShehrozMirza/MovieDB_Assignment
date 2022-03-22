@@ -7,10 +7,10 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class MovieListResponse(
     @field:SerializedName("page")
-    val adult: Boolean,
+    val page: Int,
     @field:SerializedName("results")
     val movies: List<MovieModel> = listOf(),
-    @field:SerializedName("totalPages")
+    @field:SerializedName("total_pages")
     val totalPages: Int,
     @field:SerializedName("total_results")
     val totalResults: Int,

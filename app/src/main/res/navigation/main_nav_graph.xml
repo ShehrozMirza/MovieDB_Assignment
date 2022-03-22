@@ -2,7 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_nav_graph.xml">
+    android:id="@+id/main_nav_graph.xml"
+    app:startDestination="@id/trendingMovies">
 
+    <fragment
+        android:id="@+id/trendingMovies"
+        android:name="com.example.androidnewarchitecture.ui.trending.TrendingMoviesFragment"
+        android:label="TrendingMovies"
+        tools:layout="@layout/trending_movies_fragment" >
 
+    </fragment>
 </navigation>

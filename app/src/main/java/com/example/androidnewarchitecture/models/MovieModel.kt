@@ -23,9 +23,9 @@ data class MovieModel(
     @field:SerializedName("popularity")
     val popularity: Double,
     @field:SerializedName("poster_path")
-    val poster_path: String,
+    val posterPath: String,
     @field:SerializedName("release_date")
-    val release_date: String,
+    val releaseDate: String,
     @field:SerializedName("title")
     val title: String,
     @field:SerializedName("video")
@@ -33,6 +33,6 @@ data class MovieModel(
     @field:SerializedName("vote_average")
     val voteAverage: Float,
     @field:SerializedName("vote_count")
-    val voteCount: Int,
+    val voteCount: Int
 ) : Parcelable
 

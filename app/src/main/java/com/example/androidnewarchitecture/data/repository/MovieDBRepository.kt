@@ -5,5 +5,5 @@ import com.example.androidnewarchitecture.models.MovieListResponse
 import kotlinx.coroutines.flow.Flow
 
 interface MovieDBRepository {
-    suspend fun getMoviesList(pageNumber: Int): Flow<DataState<MovieListResponse>>
+    suspend fun fetchTrendingMoviesList(pageNumber: Int): Flow<DataState<MovieListResponse>>
 }

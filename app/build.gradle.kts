@@ -8,10 +8,10 @@ plugins {
 }
 
 android {
+    compileSdk = AndroidConfig.DefaultConfig.compileSdkVersion
 
     defaultConfig {
         applicationId = AndroidConfig.DefaultConfig.applicationId
-        compileSdk = AndroidConfig.DefaultConfig.compileSdkVersion
         minSdk = AndroidConfig.DefaultConfig.minSdkVersion
         targetSdk = AndroidConfig.DefaultConfig.targetSdkVersion
         versionCode = AndroidConfig.DefaultConfig.versionCode
@@ -47,12 +47,15 @@ android {
 dependencies {
 
     //Android Support and AppCompat
+    implementation(Dependencies.legacySupport)
     implementation(Dependencies.androidxCoreKtx)
     implementation(Dependencies.androidxAppcompat)
     implementation(Dependencies.androidxMaterial)
     implementation(Dependencies.androidxConstraintLayout)
     implementation(Dependencies.androidxMaterial)
     implementation(Dependencies.androidxConstraintLayout)
+    implementation(Dependencies.androidXRecyclerView)
+    implementation(Dependencies.androidXRecyclerViewSelection)
 
     //Networking
     implementation(Dependencies.googleGson)
@@ -67,6 +70,7 @@ dependencies {
     //Hilt
     implementation(Dependencies.androidHilt)
     kapt(Dependencies.androidHiltKaptCompiler)
+    implementation(Dependencies.imageCoil)
 
     //Testing
     testImplementation(Testing.junit)

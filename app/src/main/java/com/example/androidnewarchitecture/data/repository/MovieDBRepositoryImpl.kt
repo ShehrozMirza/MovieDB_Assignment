@@ -14,9 +14,8 @@ class MovieDBRepositoryImpl @Inject constructor(
     private val stringUtils: StringUtils,
     private val apiService: MovieDBApiService
 ) : MovieDBRepository {
-
     @WorkerThread
-    override suspend fun getMoviesList(
+    override suspend fun fetchTrendingMoviesList(
         pageNumber: Int
     ): Flow<DataState<MovieListResponse>> {
         return flow {
@@ -30,7 +29,6 @@ class MovieDBRepositoryImpl @Inject constructor(
                 // e.g. internal server error.
             }.onErrorSuspend {
                 emit(DataState.error(message()))
-
                 // handle the case when the API request gets an exception response.
                 // e.g. network connection error.
             }.onExceptionSuspend {

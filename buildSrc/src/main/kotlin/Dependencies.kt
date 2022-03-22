@@ -1,11 +1,13 @@
 object Dependencies {
 
     //Android Support and AppCompat
+    const val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacySupport}"
     const val androidxCoreKtx = "androidx.core:core-ktx:${Versions.androidxCoreKtx}"
     const val androidxAppcompat = "androidx.appcompat:appcompat:${Versions.androidxAppcompat}"
     const val androidxMaterial = "com.google.android.material:material:${Versions.androidxMaterial}"
-    const val androidxConstraintLayout =
-        "androidx.constraintlayout:constraintlayout:${Versions.androidxConstraintLayout}"
+    const val androidxConstraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.androidxConstraintLayout}"
+    const val androidXRecyclerView = "androidx.recyclerview:recyclerview:${Versions.androidXRecyclerView}"
+    const val androidXRecyclerViewSelection = "androidx.recyclerview:recyclerview-selection:${Versions.androidXRecyclerViewSelection}"
 
     //Networking
     const val googleGson = "com.google.code.gson:gson:${Versions.googleGson}"
@@ -26,4 +28,5 @@ object Dependencies {
     const val navigationUIKtx =
         "androidx.navigation:navigation-ui-ktx:${Versions.navigationUIKtx}"
 
+    const val imageCoil = "io.coil-kt:coil:${Versions.coil}"
 }

@@ -6,10 +6,14 @@ object Versions {
     const val applyFalse = false
 
     //App Level Gradle Android Dependencies Version
+    const val legacySupport = "1.0.0"
     const val androidxCoreKtx = "1.7.0"
     const val androidxAppcompat = "1.4.1"
     const val androidxMaterial = "1.5.0"
     const val androidxConstraintLayout = "2.1.3"
+    const val androidXRecyclerView ="1.2.1"
+    const val androidXRecyclerViewSelection="1.1.0"
+
     const val jUnit = "4.13.2"
     const val androidxTestJunit = "1.1.3"
     const val androidxTestEspresso = "3.4.0"
@@ -24,4 +28,7 @@ object Versions {
     //Navigation
     const val navigationFragmentKtx ="2.5.0-alpha02"
     const val navigationUIKtx="2.5.0-alpha02"
+
+    //Image Caching
+    const val coil ="2.0.0-rc02"
 }
