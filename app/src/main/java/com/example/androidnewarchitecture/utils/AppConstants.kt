@@ -8,6 +8,5 @@ object AppConstants {
     const val POST_STARTING_PAGE_INDEX = 1
     const val DB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w185/"
     const val pageSize = 20
-    const val maxPageSize = pageSize * 3
-
+    const val maxPageSize = pageSize * 5
 }

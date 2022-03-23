@@ -65,12 +65,14 @@ dependencies {
     kapt(Dependencies.androidHiltKaptCompiler)
     implementation(Dependencies.imageCoil)
 
+    //Paging3
+    implementation(Dependencies.paging3)
+
     //Networking
     implementation(Dependencies.googleGson)
     implementation(Dependencies.squareRetrofit)
     implementation(Dependencies.squareRetrofitConverter)
     implementation(Dependencies.okHttpInterceptor)
-    implementation (Dependencies.paging3)
 
     //Testing
     testImplementation(Testing.junit)

@@ -15,6 +15,7 @@ import com.example.androidnewarchitecture.adapters.MoviesAdapter
 import com.example.androidnewarchitecture.base.BaseFragment
 import com.example.androidnewarchitecture.databinding.TrendingMoviesFragmentBinding
 import com.example.androidnewarchitecture.utils.AppConstants.ANGRY
+import com.example.androidnewarchitecture.utils.ErrorUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
@@ -34,9 +35,6 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
     lateinit var moviesAdapter: MoviesAdapter
     private var moviesDbJob: Job? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,6 +42,10 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
     }
 
     private fun setupViews() {
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
         // Movies RecyclerView
         moviesAdapter = MoviesAdapter { photo, _ ->
 
@@ -67,29 +69,33 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
             moviesAdapter.loadStateFlow.collect { loadState ->
                 val refreshState = loadState.refresh
 
-                // Only show the list if refresh succeeds.
+                //Only show the list if refresh succeeds.
                 bi.recyclerTrendingMovies.isVisible = refreshState is LoadState.NotLoading
                 bi.progressBar.isVisible = refreshState is LoadState.Loading
                 bi.layoutError.isVisible = refreshState is LoadState.Error
 
-                if (refreshState is LoadState.Error)
+                if (refreshState is LoadState.Error) {
                     when (refreshState.error as Exception) {
                         is HttpException -> {
-                            bi.labelError.text =
-                                getString(R.string.message_something_went_wrong_str)
+                            val httpException = refreshState.error as HttpException
+                            httpException.response()?.let {
+                                val error = ErrorUtils.parseError(it)
+                                bi.labelError.text = error.statusMessage
+                            }
                         }
                         is IOException -> {
                             bi.labelError.text =
                                 getString(R.string.message_no_network_connected_str)
                         }
                     }
+                }
 
                 val errorState = loadState.append as? LoadState.Error
                     ?: loadState.prepend as? LoadState.Error
                 errorState?.let {
                     Toast.makeText(
                         context,
-                        ANGRY + getString(R.string.error_text_label),
+                        ANGRY + errorState.error.message,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
