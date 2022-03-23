@@ -33,7 +33,7 @@ class MoviesAdapter(val onPhotoSelected: (item: MovieModel, position: Int) -> Un
 
         fun bind(item: MovieModel, position: Int) {
             itemBinding.apply {
-                imgPhoto.load(AppConstants.DB_IMAGE_BASE_URL + item.posterPath) {
+                imgMovieBanner.load(AppConstants.DB_IMAGE_BASE_URL + item.posterPath) {
                     placeholder(R.color.color_box_background)
                     crossfade(true)
                 }

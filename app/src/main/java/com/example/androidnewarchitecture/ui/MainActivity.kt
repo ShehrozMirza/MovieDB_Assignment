@@ -1,16 +1,16 @@
 package com.example.androidnewarchitecture.ui
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.androidnewarchitecture.R
-import com.example.androidnewarchitecture.base.BaseActivity
 import com.example.androidnewarchitecture.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity() {
+class MainActivity : AppCompatActivity() {
     lateinit var bi: ActivityMainBinding
     lateinit var navController: NavController
 
