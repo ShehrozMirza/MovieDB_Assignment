@@ -16,7 +16,7 @@ class TrendingMoviesViewModel @Inject constructor(
 ) : ViewModel() {
     fun getMoviesList(): Flow<PagingData<MovieModel>> {
         return Pager(
-            config = PagingConfig(pageSize = AppConstants.pageSize, maxSize = AppConstants.maxPageSize, enablePlaceholders = true),
+            config = PagingConfig(pageSize = AppConstants.pageSize, maxSize = AppConstants.maxPageSize, enablePlaceholders = false),
             pagingSourceFactory = { MoviePagingSource(fetchTrendingMoviesUseCase) }
         ).flow.cachedIn(viewModelScope)
     }

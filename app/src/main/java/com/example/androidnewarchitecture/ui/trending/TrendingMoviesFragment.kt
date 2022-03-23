@@ -41,7 +41,6 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        // initObservations()
     }
 
     private fun setupViews() {
