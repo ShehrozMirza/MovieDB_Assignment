@@ -4,18 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.NestedScrollView
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import com.example.androidnewarchitecture.R
+import com.example.androidnewarchitecture.adapters.CustomLoadStateAdapter
 import com.example.androidnewarchitecture.adapters.MoviesAdapter
 import com.example.androidnewarchitecture.base.BaseFragment
 import com.example.androidnewarchitecture.databinding.TrendingMoviesFragmentBinding
-import com.example.androidnewarchitecture.utils.gone
-import com.example.androidnewarchitecture.utils.showSnack
-import com.example.androidnewarchitecture.utils.showToast
-    import com.example.androidnewarchitecture.utils.visible
+import com.example.androidnewarchitecture.utils.AppConstants.ANGRY
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
+import java.lang.Exception
 
 @AndroidEntryPoint
 class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
@@ -26,7 +32,7 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
     private val viewModel: TrendingMoviesViewModel by viewModels()
 
     lateinit var moviesAdapter: MoviesAdapter
-
+    private var moviesDbJob: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +41,7 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        initObservations()
+        // initObservations()
     }
 
     private fun setupViews() {
@@ -44,56 +50,60 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
 
         }
         bi.recyclerTrendingMovies.adapter = moviesAdapter
-        moviesAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
 
-        // NestedScrollView
-        bi.nestedScrollView.setOnScrollChangeListener { v: NestedScrollView, _, scrollY, _, _ ->
-            if (scrollY == v.getChildAt(0).measuredHeight - v.measuredHeight) {
-                viewModel.loadMoreMovies()
-            }
-        }
-    }
-
-    private fun initObservations() {
-        viewModel.uiStateLiveData.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is LoadingState -> {
-                    bi.recyclerTrendingMovies.gone()
-                    bi.progressPhotos.visible()
-                }
-
-                is LoadingNextPageState -> {
-                    bi.progressPhotos.gone()
-                    showToast(getString(R.string.message_load_movies_str))
-                }
-
-                is ContentState -> {
-                    bi.recyclerTrendingMovies.visible()
-                    bi.progressPhotos.gone()
-                }
-
-                is ErrorState -> {
-                    bi.progressPhotos.gone()
-                    bi.nestedScrollView.showSnack(state.message, getString(R.string.action_retry_str)) {
-                        viewModel.retry()
-                    }
-                }
-
-                is ErrorNextPageState -> {
-                    bi.nestedScrollView.showSnack(state.message, getString(R.string.action_retry_str)) {
-                        viewModel.retry()
-                    }
-                }
-
-                is EmptyState->{
-                    bi.recyclerTrendingMovies.gone()
-                    bi.progressPhotos.gone()
-                }
+        moviesDbJob?.cancel()
+        moviesDbJob = lifecycleScope.launch {
+            viewModel.getMoviesList().collectLatest {
+                moviesAdapter.submitData(it)
             }
         }
 
-        viewModel.moviesListLiveData.observe(viewLifecycleOwner) { photos ->
-            moviesAdapter.updateItems(photos)
+        bi.recyclerTrendingMovies.adapter = moviesAdapter.withLoadStateFooter(
+            footer = CustomLoadStateAdapter {
+                moviesAdapter.retry()
+            }
+        )
+
+        lifecycleScope.launch {
+            moviesAdapter.loadStateFlow.collect { loadState ->
+                val refreshState = loadState.refresh
+
+                // Only show the list if refresh succeeds.
+                bi.recyclerTrendingMovies.isVisible = refreshState is LoadState.NotLoading
+                bi.progressBar.isVisible = refreshState is LoadState.Loading
+                bi.layoutError.isVisible = refreshState is LoadState.Error
+
+                if (refreshState is LoadState.Error)
+                    when (refreshState.error as Exception) {
+                        is HttpException -> {
+                            bi.labelError.text =
+                                getString(R.string.message_something_went_wrong_str)
+                        }
+                        is IOException -> {
+                            bi.labelError.text =
+                                getString(R.string.message_no_network_connected_str)
+                        }
+                    }
+
+                val errorState = loadState.append as? LoadState.Error
+                    ?: loadState.prepend as? LoadState.Error
+                errorState?.let {
+                    Toast.makeText(
+                        context,
+                        ANGRY + getString(R.string.error_text_label),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+
+        bi.reloadPostsBtn.setOnClickListener {
+            moviesAdapter.refresh()
+        }
+
+        bi.swipeRefreshLayout.setOnRefreshListener {
+            bi.swipeRefreshLayout.isRefreshing = false
+            moviesAdapter.refresh()
         }
     }
 }

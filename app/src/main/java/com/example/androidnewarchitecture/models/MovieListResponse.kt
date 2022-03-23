@@ -13,6 +13,6 @@ data class MovieListResponse(
     @field:SerializedName("total_pages")
     val totalPages: Int,
     @field:SerializedName("total_results")
-    val totalResults: Int,
+    val totalResults: Int
 ) : Parcelable
 

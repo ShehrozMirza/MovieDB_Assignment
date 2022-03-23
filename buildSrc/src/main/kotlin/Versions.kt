@@ -11,8 +11,18 @@ object Versions {
     const val androidxAppcompat = "1.4.1"
     const val androidxMaterial = "1.5.0"
     const val androidxConstraintLayout = "2.1.3"
-    const val androidXRecyclerView ="1.2.1"
-    const val androidXRecyclerViewSelection="1.1.0"
+    const val androidXRecyclerView = "1.2.1"
+    const val androidXRecyclerViewSelection = "1.1.0"
+
+    //Navigation
+    const val navigationFragmentKtx = "2.5.0-alpha02"
+    const val navigationUIKtx = "2.5.0-alpha02"
+
+    //Image Caching
+    const val coil = "2.0.0-rc02"
+
+    //Paging3
+    const val paging3 = "3.1.1"
 
     const val jUnit = "4.13.2"
     const val androidxTestJunit = "1.1.3"
@@ -25,10 +35,5 @@ object Versions {
     const val okHttpInterceptor = "4.9.1"
     const val androidHilt = "2.38.1"
 
-    //Navigation
-    const val navigationFragmentKtx ="2.5.0-alpha02"
-    const val navigationUIKtx="2.5.0-alpha02"
 
-    //Image Caching
-    const val coil ="2.0.0-rc02"
 }

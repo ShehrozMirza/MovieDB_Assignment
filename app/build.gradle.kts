@@ -56,12 +56,6 @@ dependencies {
     implementation(Dependencies.androidXRecyclerView)
     implementation(Dependencies.androidXRecyclerViewSelection)
 
-    //Networking
-    implementation(Dependencies.googleGson)
-    implementation(Dependencies.squareRetrofit)
-    implementation(Dependencies.squareRetrofitConverter)
-    implementation(Dependencies.okHttpInterceptor)
-
     //Navigation Component
     implementation(Dependencies.navigationFragmentKtx)
     implementation(Dependencies.navigationUIKtx)
@@ -70,6 +64,13 @@ dependencies {
     implementation(Dependencies.androidHilt)
     kapt(Dependencies.androidHiltKaptCompiler)
     implementation(Dependencies.imageCoil)
+
+    //Networking
+    implementation(Dependencies.googleGson)
+    implementation(Dependencies.squareRetrofit)
+    implementation(Dependencies.squareRetrofitConverter)
+    implementation(Dependencies.okHttpInterceptor)
+    implementation (Dependencies.paging3)
 
     //Testing
     testImplementation(Testing.junit)

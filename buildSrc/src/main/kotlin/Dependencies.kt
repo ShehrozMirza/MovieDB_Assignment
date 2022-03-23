@@ -29,4 +29,6 @@ object Dependencies {
         "androidx.navigation:navigation-ui-ktx:${Versions.navigationUIKtx}"
 
     const val imageCoil = "io.coil-kt:coil:${Versions.coil}"
+
+    const val paging3 = "androidx.paging:paging-runtime-ktx:${Versions.paging3}"
 }

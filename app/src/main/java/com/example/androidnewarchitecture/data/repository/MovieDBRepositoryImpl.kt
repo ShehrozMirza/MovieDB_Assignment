@@ -7,6 +7,7 @@ import com.example.androidnewarchitecture.models.MovieListResponse
 import com.example.androidnewarchitecture.utils.StringUtils
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
@@ -28,14 +29,17 @@ class MovieDBRepositoryImpl @Inject constructor(
                 // handle the case when the API request gets an error response.
                 // e.g. internal server error.
             }.onErrorSuspend {
-                emit(DataState.error(message()))
+                //emit(DataState.error(message()))
                 // handle the case when the API request gets an exception response.
                 // e.g. network connection error.
+                throw HttpException(response)
             }.onExceptionSuspend {
                 if (this.exception is IOException) {
-                    emit(DataState.error(stringUtils.noNetworkErrorMessage()))
+                    //emit(DataState.error(stringUtils.noNetworkErrorMessage()))
+                    throw IOException(stringUtils.noNetworkErrorMessage())
                 } else {
-                    emit(DataState.error(stringUtils.somethingWentWrong()))
+                    throw Exception(stringUtils.somethingWentWrong())
+                    //emit(DataState.error(stringUtils.somethingWentWrong()))
                 }
             }
         }
