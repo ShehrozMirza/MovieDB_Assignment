@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/trendingMovies"
         android:name="com.example.androidnewarchitecture.ui.trending.TrendingMoviesFragment"
-        android:label="TrendingMovies"
+        android:label="Trending Movies"
         tools:layout="@layout/trending_movies_fragment" >
 
     </fragment>

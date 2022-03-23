@@ -32,7 +32,7 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
 
     private val viewModel: TrendingMoviesViewModel by viewModels()
 
-    lateinit var moviesAdapter: MoviesAdapter
+    private lateinit var moviesAdapter: MoviesAdapter
     private var moviesDbJob: Job? = null
 
 
@@ -47,7 +47,7 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
 
     private fun setupRecyclerView() {
         // Movies RecyclerView
-        moviesAdapter = MoviesAdapter { photo, _ ->
+        moviesAdapter = MoviesAdapter { _, _ ->
 
         }
         bi.recyclerTrendingMovies.adapter = moviesAdapter
