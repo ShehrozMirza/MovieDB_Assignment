@@ -5,14 +5,14 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class MovieListResponse(
+data class MovieListResponseModel(
     @field:SerializedName("page")
-    val page: Int,
+    val page: Int = 0,
     @field:SerializedName("results")
     val movies: List<MovieModel> = listOf(),
     @field:SerializedName("total_pages")
-    val totalPages: Int,
+    val totalPages: Int = 0,
     @field:SerializedName("total_results")
-    val totalResults: Int
+    val totalResults: Int = 0
 ) : Parcelable
 
