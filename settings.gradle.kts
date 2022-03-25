@@ -18,5 +18,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidNewArchitecture"
+rootProject.name = "MovieAssignment"
 include (":app")

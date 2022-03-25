@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/trendingMovies"
-        android:name="com.example.androidnewarchitecture.ui.trending.TrendingMoviesFragment"
+        android:name="com.example.movie.ui.trending.TrendingMoviesFragment"
         android:label="Trending Movies"
         tools:layout="@layout/trending_movies_fragment">
         <action
@@ -17,11 +17,11 @@
 
     <fragment
         android:id="@+id/moviesDetailFragment"
-        android:name="com.example.androidnewarchitecture.ui.detail.MoviesDetailFragment"
+        android:name="com.example.movie.ui.detail.MoviesDetailFragment"
         android:label="Movie Detail"
         tools:layout="@layout/movie_detail_fragment">
         <argument
             android:name="movieDetails"
-            app:argType="com.example.androidnewarchitecture.models.MovieModel" />
+            app:argType="com.example.movie.models.MovieModel" />
     </fragment>
 </navigation>
