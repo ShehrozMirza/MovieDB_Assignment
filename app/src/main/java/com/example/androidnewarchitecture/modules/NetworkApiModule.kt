@@ -29,7 +29,7 @@ class NetworkApiModule {
     @Provides
     fun providesOkHttpClient(): OkHttpClient {
         val logging = HttpLoggingInterceptor()
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         return OkHttpClient.Builder()
             .callTimeout(TIME_OUT_OKHTTP_REQUEST, TimeUnit.SECONDS)

@@ -63,7 +63,6 @@ class MovieDBRepositoryImpl @Inject constructor(
                 if (this.exception is IOException) {
                     emit(DataState.error(stringUtils.noNetworkErrorMessage()))
                 } else {
-                    throw Exception(stringUtils.somethingWentWrong())
                     emit(DataState.error(stringUtils.somethingWentWrong()))
                 }
             }

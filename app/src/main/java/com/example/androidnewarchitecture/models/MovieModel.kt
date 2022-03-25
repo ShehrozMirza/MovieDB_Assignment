@@ -13,13 +13,15 @@ data class MovieModel(
     @field:SerializedName("budget")
     val budget: Int = 0,
     @field:SerializedName("genre_ids")
-    val genreList: List<Int> = listOf(),
+    val genreListId: List<Int> = listOf(),
+    @field:SerializedName("genres")
+    val generes: List<GeneresModel> = listOf(),
     @field:SerializedName("homepage")
     val homepage: String = "",
     @field:SerializedName("id")
     val id: Int = 0,
     @field:SerializedName("imdb_id")
-    val imdbId: Int = 0,
+    val imdbId: String = "",
     @field:SerializedName("original_language")
     val originalLanguage: String = "",
     @field:SerializedName("original_title")
@@ -44,6 +46,8 @@ data class MovieModel(
     val voteAverage: Float = 0.0f,
     @field:SerializedName("vote_count")
     val voteCount: Int = 0,
+    @field:SerializedName("runtime")
+    val runTime: Int = 0,
     @field:SerializedName("spoken_languages")
     val spokenLanguages: List<SpokenLanguageModel> = listOf()
 ) : Parcelable

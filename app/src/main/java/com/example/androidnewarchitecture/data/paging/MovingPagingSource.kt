@@ -3,13 +3,13 @@ package com.example.androidnewarchitecture.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.androidnewarchitecture.data.DataState
-import com.example.androidnewarchitecture.data.usecases.FetchTrendingMoviesUseCase
+import com.example.androidnewarchitecture.data.usecases.MovieDbUsecase
 import com.example.androidnewarchitecture.models.MovieModel
 import com.example.androidnewarchitecture.utils.AppConstants
 import retrofit2.HttpException
 import java.io.IOException
 
-class MoviePagingSource(private val fetchTrendingMoviesUseCase: FetchTrendingMoviesUseCase) :
+class MoviePagingSource(private val usecase: MovieDbUsecase) :
     PagingSource<Int, MovieModel>() {
 
     override fun getRefreshKey(state: PagingState<Int, MovieModel>): Int? {
@@ -27,7 +27,7 @@ class MoviePagingSource(private val fetchTrendingMoviesUseCase: FetchTrendingMov
             val position = params.key ?: AppConstants.POST_STARTING_PAGE_INDEX
             var response: List<MovieModel> = listOf()
 
-            fetchTrendingMoviesUseCase.invoke(pageNum = position).collect { dataState ->
+            usecase.fetchTrendingMovies(pageNum = position).collect { dataState ->
                 if (dataState is DataState.Success) {
                     response = dataState.data.movies
                 }

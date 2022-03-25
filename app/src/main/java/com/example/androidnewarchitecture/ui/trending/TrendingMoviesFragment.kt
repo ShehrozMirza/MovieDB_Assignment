@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.androidnewarchitecture.R
 import com.example.androidnewarchitecture.adapters.CustomLoadStateAdapter
@@ -33,8 +36,7 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
     private val viewModel: TrendingMoviesViewModel by viewModels()
 
     private lateinit var moviesAdapter: MoviesAdapter
-    private var moviesDbJob: Job? = null
-
+    private var job: Job? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,13 +49,15 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
 
     private fun setupRecyclerView() {
         // Movies RecyclerView
-        moviesAdapter = MoviesAdapter { _, _ ->
-
+        moviesAdapter = MoviesAdapter { item, _ ->
+            findNavController().navigate(
+                TrendingMoviesFragmentDirections.actionTrendingMoviesFragmentToMovieDetailFragment(item)
+            )
         }
         bi.recyclerTrendingMovies.adapter = moviesAdapter
 
-        moviesDbJob?.cancel()
-        moviesDbJob = lifecycleScope.launch {
+        job?.cancel()
+        job = lifecycleScope.launch {
             viewModel.getMoviesList().collectLatest {
                 moviesAdapter.submitData(it)
             }
@@ -65,7 +69,7 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
             }
         )
 
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             moviesAdapter.loadStateFlow.collect { loadState ->
                 val refreshState = loadState.refresh
 
