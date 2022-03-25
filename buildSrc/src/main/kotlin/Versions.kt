@@ -23,6 +23,7 @@ object Versions {
 
     //Paging3
     const val paging3 = "3.1.1"
+    const val chrisBaneImageView = "2.3.0"
 
     const val jUnit = "4.13.2"
     const val androidxTestJunit = "1.1.3"

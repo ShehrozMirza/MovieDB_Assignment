@@ -31,4 +31,6 @@ object Dependencies {
     const val imageCoil = "io.coil-kt:coil:${Versions.coil}"
 
     const val paging3 = "androidx.paging:paging-runtime-ktx:${Versions.paging3}"
+
+    const val chrisBaneImageView = "com.github.chrisbanes:PhotoView:${Versions.chrisBaneImageView}"
 }

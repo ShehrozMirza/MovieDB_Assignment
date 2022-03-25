@@ -74,6 +74,9 @@ dependencies {
     implementation(Dependencies.squareRetrofitConverter)
     implementation(Dependencies.okHttpInterceptor)
 
+    //Zoom ImageView
+    implementation(Dependencies.chrisBaneImageView)
+
     //Testing
     testImplementation(Testing.junit)
     androidTestImplementation(Testing.androidxJUnit)

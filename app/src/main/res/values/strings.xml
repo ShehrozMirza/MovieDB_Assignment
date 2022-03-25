@@ -5,4 +5,6 @@
     <string name="message_load_movies_str">Loading more movies…</string>
     <string name="action_retry_str">Retry</string>
     <string name="error_text_label">Oops something happened!</string>
+    <string name="try_again">Try Again</string>
+    <string name="sorted_by_trending">Sorted by Trending</string>
 </resources>
