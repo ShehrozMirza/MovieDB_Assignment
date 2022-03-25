@@ -12,6 +12,6 @@ object AppConstants {
     const val MOVIE_DB_IMAGE_LARGE_SIZE_URL = "https://image.tmdb.org/t/p/w500/"
 
     const val pageSize = 20
-    const val maxPageSize = pageSize * 5
+    const val maxPageSize = pageSize * 3
 
 }

@@ -2,7 +2,6 @@ package com.example.androidnewarchitecture.ui.detail
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.text.TextUtils.join
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +14,6 @@ import com.example.androidnewarchitecture.databinding.MovieDetailFragmentBinding
 import com.example.androidnewarchitecture.models.MovieModel
 import com.example.androidnewarchitecture.utils.*
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.NonCancellable.join
-import java.lang.String.join
 
 @AndroidEntryPoint
 class MoviesDetailFragment : BaseFragment<MovieDetailFragmentBinding>() {
@@ -35,7 +32,7 @@ class MoviesDetailFragment : BaseFragment<MovieDetailFragmentBinding>() {
     }
 
     private fun setupViews() {
-        viewModel.getMovieDetail(movieDetail.id)
+        viewModel.getMovieDetail(movieDetail.id!!)
         initObservations()
     }
 

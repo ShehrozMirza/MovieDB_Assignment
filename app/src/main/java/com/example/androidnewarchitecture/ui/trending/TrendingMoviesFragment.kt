@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.example.androidnewarchitecture.R
@@ -21,7 +19,6 @@ import com.example.androidnewarchitecture.utils.AppConstants.ANGRY
 import com.example.androidnewarchitecture.utils.ErrorUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
@@ -41,6 +38,10 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
+
+        viewModel.trendingMovies.observe(viewLifecycleOwner) {
+            moviesAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+        }
     }
 
     private fun setupViews() {
@@ -51,17 +52,12 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
         // Movies RecyclerView
         moviesAdapter = MoviesAdapter { item, _ ->
             findNavController().navigate(
-                TrendingMoviesFragmentDirections.actionTrendingMoviesFragmentToMovieDetailFragment(item)
+                TrendingMoviesFragmentDirections.actionTrendingMoviesFragmentToMovieDetailFragment(
+                    item
+                )
             )
         }
         bi.recyclerTrendingMovies.adapter = moviesAdapter
-
-        job?.cancel()
-        job = lifecycleScope.launch {
-            viewModel.getMoviesList().collectLatest {
-                moviesAdapter.submitData(it)
-            }
-        }
 
         bi.recyclerTrendingMovies.adapter = moviesAdapter.withLoadStateFooter(
             footer = CustomLoadStateAdapter {
@@ -77,6 +73,8 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
                 bi.recyclerTrendingMovies.isVisible = refreshState is LoadState.NotLoading
                 bi.progressBar.isVisible = refreshState is LoadState.Loading
                 bi.layoutError.isVisible = refreshState is LoadState.Error
+                bi.reloadPostsBtn.isVisible = refreshState is LoadState.Error
+                bi.labelError.isVisible = refreshState is LoadState.Error
 
                 if (refreshState is LoadState.Error) {
                     when (refreshState.error as Exception) {
