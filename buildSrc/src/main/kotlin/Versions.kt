@@ -29,7 +29,7 @@ object Versions {
     const val jUnit = "4.13.2"
     const val androidxTestJunit = "1.1.3"
     const val androidxTestEspresso = "3.4.0"
-    const val fragmentTesting = "1.4.1"
+    const val fragmentTesting = "1.5.0-alpha04"
     const val androidHiltTesting = "2.38.1"
 
     //Networking
@@ -38,7 +38,9 @@ object Versions {
     const val googleGson = "2.8.6"
     const val okHttpInterceptor = "4.9.1"
     const val androidHilt = "2.38.1"
-    const val espressoIdling ="3.4.0"
-    const val espressoContrib="3.5.0-alpha05"
+    const val espressoIdling = "3.4.0"
+    const val espressoContrib = "3.5.0-alpha05"
+    const val mockkAndroid = "1.12.3"
+    const val mockitoAndroid = "4.4.0"
 
 }

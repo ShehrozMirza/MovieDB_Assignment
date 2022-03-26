@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.VisibleForTesting
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -18,7 +19,6 @@ import com.example.movie.databinding.TrendingMoviesFragmentBinding
 import com.example.movie.utils.AppConstants.ANGRY
 import com.example.movie.utils.ErrorUtils
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
@@ -32,8 +32,8 @@ class TrendingMoviesFragment : BaseFragment<TrendingMoviesFragmentBinding>() {
 
     private val viewModel: TrendingMoviesViewModel by viewModels()
 
-    private lateinit var moviesAdapter: MoviesAdapter
-    private var job: Job? = null
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+     lateinit var moviesAdapter: MoviesAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

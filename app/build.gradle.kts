@@ -89,7 +89,11 @@ dependencies {
     kaptAndroidTest(Testing.hiltAndroidCompiler)
     androidTestImplementation(Testing.fragmentTesting)
     androidTestImplementation(Testing.espressoIdling)
-    androidTestImplementation (Testing.espressoContrib)
+    androidTestImplementation(Testing.espressoContrib)
+    androidTestImplementation(Testing.mockk)
+    androidTestImplementation(Testing.mockitoAndroid)
+    androidTestImplementation ("org.mockito:mockito-core:4.4.0")
+
 }
 
 
