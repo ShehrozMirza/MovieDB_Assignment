@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,7 +32,7 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:text="Train to Busan" />
+            tools:text="Movie DB Name" />
 
         <TextView
             android:id="@+id/tvGenre"
@@ -46,7 +45,7 @@
             android:singleLine="true"
             android:textColor="@color/white"
             android:textSize="14sp"
-            tools:text="Drama" />
+            tools:text="Movie DB Genre" />
 
         <TextView
             android:id="@+id/tvRunningTime"
@@ -59,7 +58,7 @@
             android:singleLine="true"
             android:textColor="@color/white"
             android:textSize="14sp"
-            tools:text="1h 50m" />
+            tools:text="Movie DB Running Time 1h 50m" />
 
         <View
             android:id="@+id/divider"

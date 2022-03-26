@@ -8,6 +8,6 @@ object AndroidConfig {
         const val targetSdkVersion = 32
         const val versionCode = 1
         const val versionName = "1.0"
-        const val androidTestInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        const val androidTestInstrumentationRunner = "com.example.movie.CustomTestRunner"
     }
 }

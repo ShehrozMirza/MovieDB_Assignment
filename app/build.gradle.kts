@@ -41,6 +41,10 @@ android {
     kotlinOptions {
         jvmTarget = AndroidConfig.jvmTarget
     }
+
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -81,7 +85,11 @@ dependencies {
     testImplementation(Testing.junit)
     androidTestImplementation(Testing.androidxJUnit)
     androidTestImplementation(Testing.espressoCore)
-
+    androidTestImplementation(Testing.androidHiltTesting)
+    kaptAndroidTest(Testing.hiltAndroidCompiler)
+    androidTestImplementation(Testing.fragmentTesting)
+    androidTestImplementation(Testing.espressoIdling)
+    androidTestImplementation (Testing.espressoContrib)
 }
 
 
