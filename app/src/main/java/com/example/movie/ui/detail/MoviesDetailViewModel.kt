@@ -2,7 +2,7 @@ package com.example.movie.ui.detail
 
 import androidx.lifecycle.*
 import com.example.movie.data.DataState
-import com.example.movie.data.usecases.MovieDbUsecase
+import com.example.movie.data.usecases.MoviesDetailsUsecase
 import com.example.movie.models.MovieModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MoviesDetailViewModel @Inject constructor(
-    private val movieDbUsecase: MovieDbUsecase
+    private val movieDbUsecase: MoviesDetailsUsecase
 ) : ViewModel() {
 
     private var _uiState = MutableLiveData<MovieDetailUiState>()

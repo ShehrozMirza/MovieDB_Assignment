@@ -3,13 +3,13 @@ package com.example.movie.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.movie.data.DataState
-import com.example.movie.data.usecases.MovieDbUsecase
+import com.example.movie.data.usecases.TrendingMoviesUsecase
 import com.example.movie.models.MovieModel
 import com.example.movie.utils.AppConstants
 import retrofit2.HttpException
 import java.io.IOException
 
-class MoviePagingSource(private val usecase: MovieDbUsecase) :
+class MoviePagingSource(private val usecase: TrendingMoviesUsecase) :
     PagingSource<Int, MovieModel>() {
 
     override fun getRefreshKey(state: PagingState<Int, MovieModel>): Int? {

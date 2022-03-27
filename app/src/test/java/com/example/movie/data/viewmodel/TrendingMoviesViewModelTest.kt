@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.paging.PagingData
 import com.example.movie.LiveDataUtils.getOrAwaitValueTest
 import com.example.movie.data.MainCoroutinesRule
-import com.example.movie.data.usecases.MovieDbUsecase
+import com.example.movie.data.usecases.TrendingMoviesUsecase
 import com.example.movie.ui.trending.TrendingMoviesViewModel
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
@@ -36,7 +36,7 @@ class TrendingMoviesViewModelTest {
     var coroutinesRule = MainCoroutinesRule()
 
     @MockK
-    lateinit var usecase: MovieDbUsecase
+    lateinit var usecase: TrendingMoviesUsecase
 
     @Before
     fun setUp() {

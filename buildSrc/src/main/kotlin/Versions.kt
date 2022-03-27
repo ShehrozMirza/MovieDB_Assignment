@@ -38,11 +38,19 @@ object Versions {
     const val googleGson = "2.8.6"
     const val okHttpInterceptor = "4.9.1"
     const val androidHilt = "2.38.1"
+
+    //Testing
     const val espressoIdling = "3.4.0"
     const val espressoContrib = "3.5.0-alpha05"
     const val mockkAndroid = "1.12.3"
     const val mockitoAndroid = "4.4.0"
-    const val androidXTestCore ="1.4.1-alpha05"
+    const val androidXTestCore = "1.4.1-alpha05"
     const val mockitoCore = "4.4.0"
+
+    const val junit = "4.13.2"
+    const val androidXArchCore = "2.1.0"
+    const val kotlinCoroutinesTest = "1.6.0"
+    const val ioMockk = "1.12.3"
+    const val mockWebserver = "4.9.3"
 
 }

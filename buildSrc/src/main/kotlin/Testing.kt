@@ -15,4 +15,9 @@ object Testing {
     const val androidxTestCore = "androidx.test:core:${Versions.androidXTestCore}"
     const val mockitoCore = "org.mockito:mockito-core:${Versions.mockitoCore}"
 
+    const val junitTest = "junit:junit:${Versions.junit}"
+    const val androidXArchCore = "androidx.arch.core:core-testing:${Versions.androidXArchCore}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutinesTest}"
+    const val ioMockk = "io.mockk:mockk:${Versions.ioMockk}"
+    const val mockWebserver = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebserver}"
 }

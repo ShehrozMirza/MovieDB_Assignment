@@ -93,12 +93,12 @@ dependencies {
     androidTestImplementation(Testing.mockitoCore)
 
     //Testing Module
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("androidx.arch.core:core-testing:2.1.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
-    testImplementation("io.mockk:mockk:1.12.3")
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
-    testImplementation ("com.google.truth:truth:1.1.3")
+    testImplementation(Testing.junitTest)
+    testImplementation(Testing.androidXArchCore)
+    testImplementation(Testing.coroutinesTest)
+    testImplementation(Testing.ioMockk)
+    testImplementation(Testing.mockWebserver)
+
 }
 
 

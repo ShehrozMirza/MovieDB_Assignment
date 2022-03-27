@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.movie.LiveDataUtils.getOrAwaitValueTest
 import com.example.movie.data.DataState
 import com.example.movie.data.MainCoroutinesRule
-import com.example.movie.data.usecases.MovieDbUsecase
+import com.example.movie.data.usecases.MoviesDetailsUsecase
 import com.example.movie.models.MovieModel
 import com.example.movie.ui.detail.ContentState
 import com.example.movie.ui.detail.ErrorState
@@ -40,7 +40,7 @@ class MoviesDetailViewModelTest {
     var coroutinesRule = MainCoroutinesRule()
 
     @MockK
-    lateinit var usecase: MovieDbUsecase
+    lateinit var usecase: MoviesDetailsUsecase
 
     @Before
     fun setUp() {

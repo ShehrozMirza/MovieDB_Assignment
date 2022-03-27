@@ -3,7 +3,7 @@ package com.example.movie.ui.trending
 import androidx.lifecycle.*
 import androidx.paging.*
 import com.example.movie.data.paging.MoviePagingSource
-import com.example.movie.data.usecases.MovieDbUsecase
+import com.example.movie.data.usecases.TrendingMoviesUsecase
 import com.example.movie.models.MovieModel
 import com.example.movie.utils.AppConstants
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TrendingMoviesViewModel @Inject constructor(
-    private val moviesUseCase: MovieDbUsecase
+    private val moviesUseCase: TrendingMoviesUsecase
 ) : ViewModel() {
 
     val trendingMovies: LiveData<PagingData<MovieModel>>
