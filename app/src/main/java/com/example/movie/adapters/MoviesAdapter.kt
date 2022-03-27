@@ -33,6 +33,8 @@ class MoviesAdapter(val onPhotoSelected: (item: MovieModel, position: Int) -> Un
 
         fun bind(item: MovieModel, position: Int) {
             itemBinding.apply {
+
+                txtTitle.text = item.title ?: "No Name"
                 imgMovieBanner.load(AppConstants.MOVIE_DB_IMAGE_SMALL_SIZE_URL + item.posterPath) {
                     placeholder(R.color.color_box_background)
                     crossfade(true)
@@ -51,7 +53,8 @@ class MoviesAdapter(val onPhotoSelected: (item: MovieModel, position: Int) -> Un
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: MovieModel, newItem: MovieModel) = oldItem == newItem
+            override fun areContentsTheSame(oldItem: MovieModel, newItem: MovieModel) =
+                oldItem == newItem
         }
     }
 }

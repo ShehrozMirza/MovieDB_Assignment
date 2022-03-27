@@ -7,4 +7,5 @@
     <string name="error_text_label">Oops something happened!</string>
     <string name="try_again">Try Again</string>
     <string name="sorted_by_trending">Sorted by Trending</string>
+    <string name="default_text">The Name of Movie is very Long and can take upto two lines or more than two lines</string>
 </resources>
