@@ -1,4 +1,4 @@
-package com.example.movie.utils
+package com.example.movie
 
 import androidx.test.espresso.idling.net.UriIdlingResource
 import com.example.movie.utils.AppConstants.BASE_URL

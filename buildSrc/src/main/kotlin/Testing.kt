@@ -8,7 +8,9 @@ object Testing {
     const val hiltAndroidCompiler =
         "com.google.dagger:hilt-android-compiler:${Versions.androidHiltTesting}"
     const val espressoIdling = "androidx.test.espresso.idling:idling-net:${Versions.espressoIdling}"
-    const val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espressoContrib}"
-    const val mockk ="io.mockk:mockk-android:${Versions.mockkAndroid}"
-    const val mockitoAndroid="org.mockito:mockito-android:${Versions.mockitoAndroid}"
+    const val espressoContrib =
+        "androidx.test.espresso:espresso-contrib:${Versions.espressoContrib}"
+    const val mockk = "io.mockk:mockk-android:${Versions.mockkAndroid}"
+    const val mockitoAndroid = "org.mockito:mockito-android:${Versions.mockitoAndroid}"
+    const val androidxTestCore = "androidx.test:core:${Versions.androidXTestCore}"
 }

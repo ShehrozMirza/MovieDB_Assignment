@@ -42,5 +42,6 @@ object Versions {
     const val espressoContrib = "3.5.0-alpha05"
     const val mockkAndroid = "1.12.3"
     const val mockitoAndroid = "4.4.0"
+    const val androidXTestCore ="1.4.1-alpha05"
 
 }

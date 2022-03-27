@@ -86,13 +86,14 @@ dependencies {
     androidTestImplementation(Testing.androidxJUnit)
     androidTestImplementation(Testing.espressoCore)
     androidTestImplementation(Testing.androidHiltTesting)
+    implementation(Testing.androidxTestCore)
     kaptAndroidTest(Testing.hiltAndroidCompiler)
-    androidTestImplementation(Testing.fragmentTesting)
+    debugImplementation(Testing.fragmentTesting)
     androidTestImplementation(Testing.espressoIdling)
     androidTestImplementation(Testing.espressoContrib)
     androidTestImplementation(Testing.mockk)
     androidTestImplementation(Testing.mockitoAndroid)
-    androidTestImplementation ("org.mockito:mockito-core:4.4.0")
+    androidTestImplementation("org.mockito:mockito-core:4.4.0")
 
 }
 

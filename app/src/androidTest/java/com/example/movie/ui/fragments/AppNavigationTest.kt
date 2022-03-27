@@ -13,7 +13,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.example.movie.R
 import com.example.movie.ui.MainActivity
-import com.example.movie.utils.EspressoUriIdlingResource
+import com.example.movie.EspressoUriIdlingResource
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.After

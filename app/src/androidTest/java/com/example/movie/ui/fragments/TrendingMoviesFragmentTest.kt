@@ -12,7 +12,7 @@ import androidx.test.filters.MediumTest
 import com.example.movie.R
 import com.example.movie.adapters.MoviesAdapter
 import com.example.movie.ui.trending.TrendingMoviesFragment
-import com.example.movie.utils.EspressoUriIdlingResource
+import com.example.movie.EspressoUriIdlingResource
 import com.example.movie.utils.clickChildViewWithId
 import com.example.movie.utils.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
