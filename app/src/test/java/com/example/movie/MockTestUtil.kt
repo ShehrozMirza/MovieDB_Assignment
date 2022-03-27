@@ -8,7 +8,7 @@ class MockTestUtil {
 
     companion object {
 
-        fun createMovieModelList(count: Int): List<MovieModel> {
+        private fun createMovieList(count: Int): List<MovieModel> {
             return (0 until count).map {
                 MovieModel(
                     id = it,
@@ -21,8 +21,7 @@ class MockTestUtil {
             }
         }
 
-
-        fun createMovieModelDetail(): MovieModel {
+        fun createMovieDetail(): MovieModel {
           return  MovieModel(
                 id = 3,
                 title = "Shadows In Paradise",
@@ -41,11 +40,11 @@ class MockTestUtil {
             )
         }
 
-        fun createSearchPhotosResponse(moviesCount: Int = 5): MovieListResponseModel {
+        fun createMovieListResponse(moviesCount: Int = 5): MovieListResponseModel {
             return MovieListResponseModel(
                 page = 1,
                 totalPages = 3,
-                movies = createMovieModelList(moviesCount),
+                movies = createMovieList(moviesCount),
                 totalResults = 5
             )
         }

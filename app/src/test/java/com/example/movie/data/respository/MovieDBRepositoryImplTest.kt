@@ -59,7 +59,7 @@ class MovieDBRepositoryImplTest {
 
         // Given
         repository = MovieDBRepositoryImpl(stringUtils, apiService)
-        val givenMoviesList = MockTestUtil.createSearchPhotosResponse()
+        val givenMoviesList = MockTestUtil.createMovieListResponse()
         val apiCall = successCall(givenMoviesList)
 
         // When
@@ -92,7 +92,7 @@ class MovieDBRepositoryImplTest {
 
         // Given
         repository = MovieDBRepositoryImpl(stringUtils, apiService)
-        val givenMoviesList = MockTestUtil.createSearchPhotosResponse(0)
+        val givenMoviesList = MockTestUtil.createMovieListResponse(0)
         val apiCall = successCall(givenMoviesList)
 
         // When
@@ -125,7 +125,7 @@ class MovieDBRepositoryImplTest {
 
         // Given
         repository = MovieDBRepositoryImpl(stringUtils, apiService)
-        val giveMovieDetail = MockTestUtil.createMovieModelDetail()
+        val giveMovieDetail = MockTestUtil.createMovieDetail()
         val apiCall = successCall(giveMovieDetail)
 
         // When
@@ -150,7 +150,6 @@ class MovieDBRepositoryImplTest {
         coVerify(exactly = 1) { apiService.getMovieDetail(movieId = any()) }
         confirmVerified(apiService)
     }
-
 
     @Test
     fun `test getMovieDetail() throws exception`() = runBlocking {

@@ -12,6 +12,7 @@ import javax.inject.Inject
 class MoviesDetailViewModel @Inject constructor(
     private val movieDbUsecase: MovieDbUsecase
 ) : ViewModel() {
+
     private var _uiState = MutableLiveData<MovieDetailUiState>()
     var uiStateLiveData: LiveData<MovieDetailUiState> = _uiState
 

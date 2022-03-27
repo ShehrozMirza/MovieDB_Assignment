@@ -11,6 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     lateinit var bi: ActivityMainBinding
     lateinit var navController: NavController
 
