@@ -81,7 +81,7 @@ dependencies {
     //Zoom ImageView
     implementation(Dependencies.chrisBaneImageView)
 
-    //Testing
+    //Android Testing Module
     testImplementation(Testing.junit)
     androidTestImplementation(Testing.androidxJUnit)
     androidTestImplementation(Testing.espressoCore)
@@ -93,8 +93,14 @@ dependencies {
     androidTestImplementation(Testing.espressoContrib)
     androidTestImplementation(Testing.mockk)
     androidTestImplementation(Testing.mockitoAndroid)
-    androidTestImplementation("org.mockito:mockito-core:4.4.0")
+    androidTestImplementation(Testing.mockitoCore)
 
+    //Testing Module
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
+    testImplementation("io.mockk:mockk:1.12.3")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
 }
 
 

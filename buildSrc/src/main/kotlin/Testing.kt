@@ -13,4 +13,6 @@ object Testing {
     const val mockk = "io.mockk:mockk-android:${Versions.mockkAndroid}"
     const val mockitoAndroid = "org.mockito:mockito-android:${Versions.mockitoAndroid}"
     const val androidxTestCore = "androidx.test:core:${Versions.androidXTestCore}"
+    const val mockitoCore = "org.mockito:mockito-core:${Versions.mockitoCore}"
+
 }

@@ -13,7 +13,6 @@ import com.example.movie.EspressoUriIdlingResource
 import com.example.movie.R
 import com.example.movie.models.MovieModel
 import com.example.movie.ui.detail.MoviesDetailFragment
-import com.example.movie.utils.factory.DataFactoryImpl
 import com.example.movie.utils.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -38,7 +37,7 @@ class MovieDetailFragmentTest {
 
     @Before
     fun setup() {
-        movieModel = DataFactoryImpl.getMovieModel()
+        movieModel = MovieModel(id = 3)
         fragmentArgsBundle = bundleOf("movieDetails" to movieModel)
     }
 
@@ -67,7 +66,7 @@ class MovieDetailFragmentTest {
     /**
      *
     is Movie Detail 'object' rendered to all views properly'
-    has to match exactly with this data because of api calling get movie details
+    has to match exactly with this data because of api calling get movie details{Movie_Id = 3}
     {
     "id": 3,
     "title": "Shadows in Paradise"
