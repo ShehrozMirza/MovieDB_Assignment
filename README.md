@@ -1,9 +1,8 @@
 # The Movie DB Assingment Consists of two Screens (Movie List and Movie Detail)
 
-# Movie DB App (MVVM Clean Architecture)
-# Built With
+Movie DB App (MVVM Clean Architecture)
 
--100 % Kotlin for Development.
+# Built With 100 % Kotlin for Development.
 
 -BuildSrc(Kotlin Dsl) for Dependency Managment.
 
